@@ -36,8 +36,10 @@
 nav
   background: #f4be50 !important
   left: 0
+  max-width: 100vw !important
   position: fixed
   top: 0
+  width: 100vw
   z-index: 99 !important
 
   .img-logo
