@@ -4,14 +4,29 @@
     data-aos="fade-up"
     data-aos-delay="100"
   >
-    <a
-      href="#"
+    <div
       class="card card-icon-2 card-body justify-content-between hover-shadow-3d"
     >
-      <div class="icon-round mb-3 mb-md-4 icon bg-primary">
-        <img class="icon bg-primary" src="" alt="icon" data-inject-svg="" />
-      </div>
-      <h5 class="mb-0">Freelancing in the modern economy</h5>
-    </a>
+      <img class="artist-avatar" :src="artistData.avatar" />
+      <h5 class="mb-0">{{ artistData.stagename }}</h5>
+      <span>{{ artistData.fname }} {{ artistData.lname }} </span>
+
+      <span>{{ artistData.country }} </span>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    artistData: Object
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+.artist-avatar
+  border-radius: 20px
+  height: 154px
+  width: 154px
+</style>

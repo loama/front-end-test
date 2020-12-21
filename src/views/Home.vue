@@ -2,7 +2,11 @@
   <div id="home" class="container">
     <h2 class="mt-4">Artists</h2>
     <div class="row mt-4">
-      <Artist />
+      <Artist
+        v-for="artist in artists"
+        v-bind:key="artist.id"
+        :artistData="artist"
+      />
     </div>
   </div>
 </template>
@@ -20,13 +24,19 @@ export default {
       return this.$store.state.loggedIn
     }
   },
+  data() {
+    return {
+      artists: []
+    }
+  },
   methods: {
     getArtists() {
+      const self = this
       this.$API({
         method: 'get',
         url: 'artists//?@order=id&@limit=100&@offset=0'
       }).then(function(response) {
-        console.log(response)
+        self.artists = response.data.data
       })
     }
   },
