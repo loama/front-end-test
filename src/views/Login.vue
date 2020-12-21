@@ -23,6 +23,7 @@
                 name="login-password"
                 placeholder="Password"
                 class="form-control"
+                v-model="password"
               />
               <small><a href="#">Forgot your password?</a> </small>
             </div>
@@ -92,11 +93,10 @@ export default {
         url: 'http://api1.musicasaa.com/admin/login',
         data: {
           email: this.email,
-          pwd: 'MexicoEspana!'
+          pwd: this.password
         }
       })
         .then(function(response) {
-          console.log(response.data)
           self.createAxiosInstance(response.data.jwt)
         })
         .catch(function(err) {
