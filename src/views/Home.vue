@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="home" class="container">
+    <h2 class="mt-4">Artists</h2>
+    <div class="row mt-4">
+      <Artist />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Artist from '@/components/artist'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Artist
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn
+    }
+  },
+  methods: {
+    getArtists() {
+      this.$API({
+        method: 'get',
+        url: 'artists//?@order=id&@limit=100&@offset=0'
+      }).then(function(response) {
+        console.log(response)
+      })
+    }
+  },
+  watch: {
+    loggedIn(newValue) {
+      if (newValue) {
+        this.getArtists()
+      }
+    }
   }
 }
 </script>
