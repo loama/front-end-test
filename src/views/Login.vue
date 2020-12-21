@@ -80,7 +80,7 @@ export default {
   methods: {
     createAxiosInstance(token) {
       Vue.prototype.$API = axios.create({
-        baseURL: 'http://api1.musicasaa.com/',
+        baseURL: 'https://api1.musicasaa.com/',
         timeout: 10000,
         headers: { Authorization: 'Bearer ' + token }
       })
@@ -90,7 +90,7 @@ export default {
       const self = this
       axios({
         method: 'post',
-        url: 'http://api1.musicasaa.com/admin/login',
+        url: 'https://api1.musicasaa.com/admin/login',
         data: {
           email: this.email,
           pwd: this.password
