@@ -22,11 +22,9 @@ export default {
   computed: {
     loggedIn() {
       return this.$store.state.loggedIn
-    }
-  },
-  data() {
-    return {
-      artists: []
+    },
+    artists() {
+      return this.$store.state.artists
     }
   },
   methods: {
@@ -36,7 +34,7 @@ export default {
         method: 'get',
         url: 'artists//?@order=id&@limit=100&@offset=0'
       }).then(function(response) {
-        self.artists = response.data.data
+        self.$store.commit('setArtists', response.data.data)
       })
     }
   },

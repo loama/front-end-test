@@ -73,8 +73,8 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: ''
+      email: 'loama18@gmail.com',
+      password: 'MexicoEspana!'
     }
   },
   methods: {

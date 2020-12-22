@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loggedIn: false
+    loggedIn: false,
+    artists: []
   },
   mutations: {
     login(state) {
@@ -13,6 +14,9 @@ export default new Vuex.Store({
     },
     logout(state) {
       state.loggedIn = false
+    },
+    setArtists(state, payload) {
+      state.artists = payload
     }
   },
   actions: {},

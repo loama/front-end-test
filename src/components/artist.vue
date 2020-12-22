@@ -1,8 +1,7 @@
 <template>
   <div
-    class="col-md-6 col-lg-3 d-flex aos-init aos-animate"
-    data-aos="fade-up"
-    data-aos-delay="100"
+    class="col-md-6 col-lg-3 d-flex artist"
+    v-on:click="openArtistModal(artistData.id)"
   >
     <div
       class="card card-icon-2 card-body justify-content-between hover-shadow-3d"
@@ -18,6 +17,16 @@
 
 <script>
 export default {
+  methods: {
+    openArtistModal(id) {
+      this.$router.push({
+        query: {
+          modal: 'artist',
+          id: id
+        }
+      })
+    }
+  },
   props: {
     artistData: Object
   }
@@ -25,6 +34,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.artist
+  cursor: pointer
+
 .artist-avatar
   border-radius: 20px
   height: 154px
