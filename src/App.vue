@@ -74,6 +74,9 @@ export default {
 /* stylelint-disable */
 @import "./assets/css/theme-saas.css"
 
+#app
+  padding-top: 120px
+
 .modal
   pointer-events: none
 
